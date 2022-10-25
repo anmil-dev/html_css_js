@@ -1,0 +1,31 @@
+body {
+    background-image: url("../images/CambellIslandCampsite.jpg");
+    background-size: 1000px;
+    background-position-y: center;
+    background-blend-mode: color-burn;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+h1 {
+    color: blueviolet;
+    font: 32px Garamond, Helvetica, serif;
+}
+
+table {
+    border-style: dotted;
+    border-width: 10px;
+    border-color:white;
+    width: 50%;
+}
+
+thead {
+    text-align: left;
+}
+
+label {
+    display: flex;
+}
+
+#submit-btn {
+    display: block;
+}

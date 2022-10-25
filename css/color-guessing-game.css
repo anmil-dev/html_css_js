@@ -1,0 +1,30 @@
+body {
+    background-color:rgb(255, 255, 255);
+}
+
+h1 {
+    text-align:center;
+    padding:30px;
+    font-weight: bold;
+}
+
+button {
+    text-align: center;
+    background-color: black;
+    color:white;
+    padding: 10px 30px;
+    border-radius:7%;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color:rgb(217, 217, 217);
+    color:black;
+    box-shadow: 1px 1px 5px black;
+    
+}
+
+#button {
+    text-align: center;
+}
