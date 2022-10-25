@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Guessing Game</title>
+    <link rel="stylesheet" href="./css/color-guessing-game.css">
+</head>
+<body>
+    <h1>Color Guessing Game</h1>
+
+    <div id="button">
+        <button type="button" onclick="runGame()"> Start Game</button>
+    </div>
+    
+    
+    <script>
+        
+function runGame() {
+    //declared variables inside of runGame() using the number-guessing-game as a template
+    colors_array = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+    let guess = '';  //Again using number-guessing-game as a template, declaring an empty string
+    let correct = false; 
+    let numTries = 0;
+    let colorsSort = colors_array.sort();
+    const colors = colors_array.join(', ');
+    
+    
+    const targetIndex = Math.floor(Math.random() * colors_array.length);
+    const target = colors_array[targetIndex];
+            do {
+                guess = prompt('I am thinking of one these colors:\n\n' + colors + '\n\n What color am I thinking of?');
+                
+                if ( guess === null) {
+                    
+                    alert ('You are exiting the game.');
+                    return;
+                }
+                
+                numTries += 1;
+                correct = checkGuess(guess.toLowerCase(), target.toLowerCase());  //allows CAPITAL letters in user prompt
+
+            } while (!correct);
+
+ //document.body.style.background = guess; USING A DELAYED TIMER FOR THE ALERT SO THE PAGE CHANGES COLOR BEFORE THE ALERT HAPPENS
+document.body.style.backgroundColor = guess;
+let alertMsg = `Congratulations! ${target} was the correct color. \n\n It took you ${numTries} tries to guess it. \n\n Now you can see the color!`;
+setTimeout(function(){alert(alertMsg)},100);
+
+
+}
+        
+        
+
+function checkGuess (guess, target, numTries) {
+        let correct = false;
+
+        if (!colors_array.includes(guess)) {  //The instructions for this line did not read well at all to me.
+            
+            alert(`I do not recognize that color. Please try again!`);
+        } else if ( guess < target ) {
+            
+            alert(`The color I am thinking is alphabetically higher than "${guess.toUpperCase()}". Please try again!`);
+        } else if (guess > target) {
+    
+            alert(`The color I am thinking is alphabetically lower than "${guess.toUpperCase()}". Please try again!`);
+        } 
+        else {
+            
+            correct = true;
+        }
+
+
+        return correct;
+}
+
+
+    </script>
+
+
+</body>
+</html>
